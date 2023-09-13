@@ -3,6 +3,7 @@ from itertools import permutations
 from itertools import combinations
 from itertools import product
 from itertools import combinations_with_replacement
+import heapq
 
 #1
 a = 0.3 + 0.6
@@ -22,7 +23,7 @@ if b == 1.2:
 else:
     print(False)
 
-#3
+#3 list comprehension
 array1 = [i*i for i in range(1,10)]
 print(array1)
 
@@ -46,7 +47,7 @@ array4 = [[0] * m for _ in range(n)]
 array4[1][1] = 5
 print(array4)
 
-#6
+#6 in list
 list_a = [1,2,3,4,5,5,5,]
 remove_set = {3,5}
 
@@ -82,11 +83,11 @@ print(a_9 | b_9) # 합집합
 print(a_9 & b_9) # 교집합
 print(a_9 - b_9) # 차집합
 
-a_9.add(8)
+a_9.add(8) #o(1)
 print(a_9)
 b_9.update([6,7])
 print(b_9)
-b_9.remove(2)
+b_9.remove(2) #o(1)
 print(b_9)
 
 #10
@@ -121,7 +122,7 @@ for i in range(10):
 
 print(a_11)
 
-#13
+#13 lambda
 print((lambda a,b: a+b)(3,7))
 
 #14
@@ -144,7 +145,7 @@ print("정답은 " + str(answer_16) + " 입니다.")
 print("정답은",answer_16,"입니다.") # 각 변수를 콤마로 구분하는 경우 의도치 않은 공백이 삽입될 수 있음
 print(f"정답은 {answer_16} 입니다.")
 
-#17
+#17 eval()
 result_17 = eval("(3+5)*7")
 print(result_17)
 
@@ -152,7 +153,7 @@ print(result_17)
 result_18 = sorted([('아이폰13', 2021), ('아이폰14', 2022), ('아이폰15', 2023)], key = lambda x: x[1], reverse=True)
 print(result_18)
 
-#19
+#19 itertools
 data_19 = ['A', 'B', 'C']
 result_19 = list(permutations(data_19, 3)) #모든 순열 구하기, 리스트에서 3개를 뽑아 나열하는 모든 경우의 수
 print(result_19)
@@ -162,3 +163,34 @@ result_19_2 = list(product(data_19, repeat=2)) #2개를 뽑아 나열하되 원�
 print(result_19_2)
 result_19_3 = list(combinations_with_replacement(data_19, 2)) #순서를 고려하지 않고 나열하는 모든 경우의 수 + 원소를 중복으로 뽑음
 print(result_19_3)
+
+#20 heapq o(nlogn)
+#파이썬은 최소 힙으로 구성, 원소를 힙에 전부 넣었다가 빼는 것만으로도 시간 복잡도 o(nlogn)에 오름차순 정렬됨, 최소 힙의 최상단 원소는 '가장 작은 원소'
+#파이썬은 최대 힙 제공x, 최대 힙 구현시 원소의 부호를 임시로 변경
+def heapsort(iterable):
+    h = []
+    result = []
+    # 모든 원소를 차례대로 힙에 삽입
+    for value in iterable:
+        heapq.heappush(h, value)
+    # 힙에 삽입된 원소를 '차례대로' 꺼내어 담기
+    for _ in range(len(h)):
+        result.append(heapq.heappop(h))
+    return result
+result_20 = heapsort([1,3,5,7,9,2,4,6,8,0])
+print(result_20)
+
+def heapsort2(iterable):
+    h = []
+    result = []
+    for value in iterable:
+        heapq.heappush(h, -value)
+    for _ in range(len(h)):
+        result.append(-heapq.heappop(h))
+    return result
+result_20_1 = heapsort2([1,3,5,7,9,2,4,6,8,0])
+print(result_20_1)
+
+#21 bisect
+
+
