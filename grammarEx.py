@@ -97,3 +97,10 @@ result_101 = "success" if score_101 >=80 else "fail"
 print(result_101)
 
 #11
+scores_11 = [90, 85, 77, 65, 97]
+cheating_list = {2,4}
+for i in range(5):
+    if i+1 in cheating_list:
+        continue
+    if scores_11[i] >= 80:
+        print(i+1, "번님 합격")
