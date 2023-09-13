@@ -84,3 +84,16 @@ b_9.remove(2)
 print(b_9)
 
 #10
+score_10 = 85
+if score_10 >= 80:
+    pass
+else:
+    print("80미만")
+print("종료합니다.")
+
+#10-1
+score_101 = 85
+result_101 = "success" if score_101 >=80 else "fail"
+print(result_101)
+
+#11
