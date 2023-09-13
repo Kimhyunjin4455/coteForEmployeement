@@ -1,3 +1,5 @@
+import sys
+
 #1
 a = 0.3 + 0.6
 print(a)
@@ -104,3 +106,38 @@ for i in range(5):
         continue
     if scores_11[i] >= 80:
         print(i+1, "번님 합격")
+
+#12
+a_11 = 0
+def func_11():
+    global a_11
+    a_11 += 1
+for i in range(10):
+    func_11()
+
+print(a_11)
+
+#13
+print((lambda a,b: a+b)(3,7))
+
+#14
+# n_14 = int(input()) # 데이터의 개수 입력
+# data_14 = list(map(int, input().split())) # 각 데이터를 공백으로 구분하여 입력
+# data_14.sort(reverse=True)
+# print(data_14)
+
+#14-1
+# n_14, m_14, k_14 = map(int, input().split())
+# print(n_14,m_14,k_14)
+#
+#15
+# data_15 = sys.stdin.readline().rstrip() # readline() 입력하면 입력 후 엔터가 줄바꿈 기호로 입력되는데, 이를 제거하기 위해 rstrip()사용
+# print(data_15)
+
+#16
+answer_16 = 8
+print("정답은 " + str(answer_16) + " 입니다.")
+print("정답은",answer_16,"입니다.") # 각 변수를 콤마로 구분하는 경우 의도치 않은 공백이 삽입될 수 있음
+print(f"정답은 {answer_16} 입니다.")
+
+#
