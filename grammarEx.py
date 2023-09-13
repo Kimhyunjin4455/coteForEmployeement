@@ -1,4 +1,8 @@
 import sys
+from itertools import permutations
+from itertools import combinations
+from itertools import product
+from itertools import combinations_with_replacement
 
 #1
 a = 0.3 + 0.6
@@ -140,4 +144,21 @@ print("정답은 " + str(answer_16) + " 입니다.")
 print("정답은",answer_16,"입니다.") # 각 변수를 콤마로 구분하는 경우 의도치 않은 공백이 삽입될 수 있음
 print(f"정답은 {answer_16} 입니다.")
 
-#
+#17
+result_17 = eval("(3+5)*7")
+print(result_17)
+
+#18
+result_18 = sorted([('아이폰13', 2021), ('아이폰14', 2022), ('아이폰15', 2023)], key = lambda x: x[1], reverse=True)
+print(result_18)
+
+#19
+data_19 = ['A', 'B', 'C']
+result_19 = list(permutations(data_19, 3)) #모든 순열 구하기, 리스트에서 3개를 뽑아 나열하는 모든 경우의 수
+print(result_19)
+result_19_1 = list(combinations(data_19, 2)) #순서를 고려하지 않고 나열하는 모든 경우의 수
+print(result_19_1)
+result_19_2 = list(product(data_19, repeat=2)) #2개를 뽑아 나열하되 원소를 중복하여 뽑음
+print(result_19_2)
+result_19_3 = list(combinations_with_replacement(data_19, 2)) #순서를 고려하지 않고 나열하는 모든 경우의 수 + 원소를 중복으로 뽑음
+print(result_19_3)
