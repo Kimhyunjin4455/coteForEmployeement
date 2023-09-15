@@ -7,6 +7,7 @@ import heapq
 from bisect import bisect_left, bisect_right
 from collections import deque
 from collections import Counter
+import math
 
 #1
 a = 0.3 + 0.6
@@ -222,6 +223,9 @@ print(list(data_22))
 counter_22 = Counter(['r', 'b', 'r', 'g', 'b', 'b'])
 print(counter_22['b']) # 'b'가 등장한 횟수 출력
 print(counter_22['g'])
-print(dict(counter_22)) # 사전 자료형으로 변환시킴
+print(dict(counter_22)) # 사전 자료형으로 변환시
+
+print(math.pi)
+print(math.e)
 
 
