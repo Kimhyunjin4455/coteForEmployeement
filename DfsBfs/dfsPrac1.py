@@ -21,3 +21,5 @@ graph = [
 
 visited = [False]*9
 dfs(graph, 1, visited)
+
+# dfs는 스택 방식(재귀 함수), bfs는 큐 방식(deque 라이브러리) 이용

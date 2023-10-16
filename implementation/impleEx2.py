@@ -60,64 +60,109 @@
 
 # re resolve
 
-n, m = map(int, input().split())
-A, B, d = map(int, input().split())
+# n, m = map(int, input().split())
+# A, B, d = map(int, input().split())
+#
+# #방문 정보
+# visit_list = [[0] * m for _ in range(m)]
+# visit_list[A][B] = 1
+#
+# # 전체 맵정보
+# input_data = []
+# for _ in range(n):
+#     input_data.append(list(map(int, input().split())))
+# # print(input_data)
+#
+# # *북쪽 이동의 예시는 (2,2)에서 (1,2)로 이동하는 것*
+# dx = [-1,0,1,0]
+# dy = [0,1,0,-1]
+#
+# # def turn_left():
+# #     global d
+# #     d -= 1
+# #     if d == -1:
+# #         d = 3
+#
+# cnt = 1
+# turn_time = 0
+# while True:
+#     # turn_left()
+#     d -= 1
+#     if d==-1:
+#         d=3
+#     nA = A + dx[d]
+#     nB = B + dy[d]
+#
+#     # 회전 이후 정면에 가보지 않았으며 육지인 경우
+#     if visit_list[nA][nB] == 0 and input_data[nA][nB] == 0:
+#         visit_list[nA][nB] = 1
+#         A = nA
+#         B = nB
+#         cnt += 1
+#         turn_time = 0
+#         continue
+#     # 회전 이후 정면에 가보지 않은 칸이 없거나 바다인 경우
+#     else:
+#         turn_time += 1
+#     # 네 방향 모두 갈 수 없는 경우
+#     if turn_time == 4:
+#         nA = A - dx[d]
+#         nB = B - dy[d]
+#         # 뒤로 갈 수 있다면 이동
+#         if input_data[nA][nB] == 0:
+#             A = nA
+#             B = nB
+#         # 뒤가 바다일 경우
+#         else:
+#             break
+#         turn_time = 0
+#
+# print(cnt)
 
-#방문 정보
-visit_list = [[0] * m for _ in range(m)]
-visit_list[A][B] = 1
+#re resolve2
 
-# 전체 맵정보
+n,m = map(int, input().split())
+A,B,d = map(int, input().split())
 input_data = []
 for _ in range(n):
     input_data.append(list(map(int, input().split())))
-# print(input_data)
 
-# *북쪽 이동의 예시는 (2,2)에서 (1,2)로 이동하는 것*
-dx = [-1,0,1,0]
-dy = [0,1,0,-1]
+visit_list = [[0]*m for _ in range(n)]
+visit_list[A][B] = 1
 
-# def turn_left():
-#     global d
-#     d -= 1
-#     if d == -1:
-#         d = 3
+da = [-1, 0, 1, 0]
+db = [0, 1, 0, -1]
 
-cnt = 1
+result = 1
 turn_time = 0
 while True:
-    # turn_left()
     d -= 1
-    if d==-1:
-        d=3
-    nA = A + dx[d]
-    nB = B + dy[d]
+    if d == -1:
+        d = 3
+    nA = A + da[d]
+    nB = B + db[d]
 
-    # 회전 이후 정면에 가보지 않았으며 육지인 경우
-    if visit_list[nA][nB] == 0 and input_data[nA][nB] == 0:
+    if input_data[nA][nB] == 0 and visit_list[nA][nB] == 0:
         visit_list[nA][nB] = 1
         A = nA
         B = nB
-        cnt += 1
-        turn_time = 0
+        result +=1
+        turn_time =0
         continue
-    # 회전 이후 정면에 가보지 않은 칸이 없거나 바다인 경우
     else:
-        turn_time += 1
-    # 네 방향 모두 갈 수 없는 경우
+        turn_time +=1
     if turn_time == 4:
-        nA = A - dx[d]
-        nB = B - dy[d]
-        # 뒤로 갈 수 있다면 이동
+        nA = A - da[d]
+        nB = B - db[d]
         if input_data[nA][nB] == 0:
             A = nA
             B = nB
-        # 뒤가 바다일 경우
         else:
             break
         turn_time = 0
 
-print(cnt)
+print(result)
+
 
 
 
