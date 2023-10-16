@@ -24,7 +24,7 @@ array_b.sort(reverse=True)
 for i in range(k):
     if array_a[i] < array_b[i]:
         array_a[i], array_b[i] = array_b[i], array_a[i]
-    else:
-        break # 오름차순 정렬의 값이 내림차순 정렬의 값보다 크다면 그 이후는 계산 X
+    # else: # else문 없어도 작동
+    #     break # 오름차순 정렬의 값이 내림차순 정렬의 값보다 크다면 그 이후는 계산 X,
 
 print(sum(array_a))
