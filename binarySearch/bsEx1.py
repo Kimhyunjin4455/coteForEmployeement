@@ -21,7 +21,6 @@ def binary_search(stock_list, target, start, end): # target에 대해 생각 못
 
 
 
-
 for wish_list_item in wish_list:
     result = binary_search(stock_list, wish_list_item, 0, n-1)
     if result != None:
