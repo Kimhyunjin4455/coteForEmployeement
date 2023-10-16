@@ -21,3 +21,30 @@
 # print(result)
 
 
+n,m = map(int, input().split())
+dduck_len = list(map(int, input().split()))
+
+end = max(dduck_len)
+
+def bs(array, target, start, end):
+
+    mid = (start + end) // 2
+    product = 0
+    for dduck in dduck_len:
+        if dduck >= mid:
+            product += (dduck-mid)
+    if product == m:
+        return mid
+    elif product > m:
+        return bs(array, target, mid+1, end)
+    else:
+        return bs(array, target, start, mid-1)
+
+print(bs(dduck_len, m, 0, end))
+
+
+
+
+
+
+
