@@ -21,15 +21,27 @@
 # print(result)
 
 #2
+# n,m = map(int, input().split())
+# result_2 = 0
+# for i in range(n):
+#     data_2 = list(map(int, input().split()))
+#     min_value = 10001 # 입력 조건으로 들어오는 수는 10000 이하이므로 비교를 위해 임의의 수 10001로 설정
+#     for a in data_2:
+#         min_value = min(a, min_value)
+#     result_2 = max(result_2, min_value)
+# print(result_2)
+
+#Re resolve
 n,m = map(int, input().split())
-result_2 = 0
-for i in range(n):
-    data_2 = list(map(int, input().split()))
-    min_value = 10001 # 입력 조건으로 들어오는 수는 10000 이하이므로 비교를 위해 임의의 수 10001로 설정
-    for a in data_2:
-        min_value = min(a, min_value)
-    result_2 = max(result_2, min_value)
-print(result_2)
+result = 0
+for _ in range(n):
+
+    min_value = min(list(map(int, input().split())))
+    result = max(result, min_value)
+
+print(result)
+
+
 
 
 
