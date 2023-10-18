@@ -12,7 +12,7 @@
 #
 # for i in range(n):
 #     for j in range(coin[i], m+1):
-#         if dp[j-coin[i]] != 10001:
+#         if dp[j-coin[i]] != 10001: # ex: 2 -> dp[0] 0 dp[1] 10001 dp[2] 1 (0+1) dp[3] 10001 dp[4] 2 (1+1)
 #             dp[j] = min(dp[j], dp[j-coin[i]]+1)
 #
 # if dp[m] == 10001:
@@ -30,9 +30,9 @@ for _ in range(n):
 dp = [10001] * (m+1) # 10001은 특정 금액을 만들 수 있는 화폐구성이 가능하지 않다는 의미
 dp[0] = 0
 
-for i in range(m+1):
-    for j in coin_list:
-        dp[i] = min(dp[i - j] +1, dp[i])
+for i in range(n):
+    for j in range(coin_list[i], m+1):
+        dp[j] = min(dp[j], dp[j-coin_list[i]]+1)
 
 print(dp[m])
 
