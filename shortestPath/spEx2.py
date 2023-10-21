@@ -53,6 +53,8 @@ for d in distance:
 
 print(cnt-1, max_cost) # cnt에는 출발 노드도 포함되어 있어서 -1
 
+# re resolve
+
 
 
 
