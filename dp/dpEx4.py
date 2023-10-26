@@ -20,21 +20,41 @@
 # else:
 #     print(dp[m])
 
-# re resolve
-# 적은 금액부터 큰 금액까지 확인하며 차례대로 만들 수 있는 최소한의 화폐 개수 찾기
-n,m = map(int, input().split())
-coin_list = []
-for _ in range(n):
-    coin_list.append(int(input()))
+# # re resolve
+# # 적은 금액부터 큰 금액까지 확인하며 차례대로 만들 수 있는 최소한의 화폐 개수 찾기
+# n,m = map(int, input().split())
+# coin_list = []
+# for _ in range(n):
+#     coin_list.append(int(input()))
+#
+# dp = [10001] * (m+1) # 10001은 특정 금액을 만들 수 있는 화폐구성이 가능하지 않다는 의미
+# dp[0] = 0
+#
+# for i in range(n):
+#     for j in range(coin_list[i], m+1):
+#         dp[j] = min(dp[j], dp[j-coin_list[i]]+1)
+#
+# print(dp[m])
 
-dp = [10001] * (m+1) # 10001은 특정 금액을 만들 수 있는 화폐구성이 가능하지 않다는 의미
+
+n,m = int(input())
+coin = []
+for _ in range(n):
+    coin.append(int(input()))
+
+dp = [10001] * 101
 dp[0] = 0
 
 for i in range(n):
-    for j in range(coin_list[i], m+1):
-        dp[j] = min(dp[j], dp[j-coin_list[i]]+1)
+    for j in range(coin[i], m+1):
+        if(dp[j - coin[i]] != 10001):
+            dp[j] = min(dp[j], dp[j-coin[i]]+1)
 
-print(dp[m])
+if dp[m] ==10001:
+    print(-1)
+else:
+    print(dp[m])
+
 
 
 
