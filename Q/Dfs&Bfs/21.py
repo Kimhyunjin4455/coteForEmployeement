@@ -27,8 +27,8 @@ def dfs(i, j):
                 dfs(nr, nc)
 
     area[row][col] = int(peoples/len(recur))
-    # visited[row][col] = False
-    return True
+    visited[row][col] = False
+
 
 
 
@@ -36,20 +36,14 @@ def dfs(i, j):
 
 for i in range(N):
     for j in range(N):
+        new_area = area.copy()
         if visited[i][j] == False:
             peoples = 0
             recur = [0]
-            for k in range(N):
-                for l in range(N):
-                    visited[k][l] = False
+            dfs(i,j)
+        if area == new_area:
+            result += 1
 
-            for dir in range(4):
-                nr = i + dr[dir]
-                nc = j + dc[dir]
-                if 0 <= nr < N and 0 <= nc < N:
-                    if (visited[nr][nc] == False) and L <= abs(area[i][j] - area[nr][nc]) <= R:
-                        dfs(i,j)
-                        result += 1
-
+print(area)
 print(result)
 
