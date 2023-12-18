@@ -7,7 +7,7 @@ dp[0] = 1
 for i in range(len(nums)):
     for j in range(nums[i], K+1): # 최대 반복수는 최대 금액때까지
         dp[j] = dp[j] + dp[j - nums[i]]
-print(dp)
+
 print(dp[K])
 
 
