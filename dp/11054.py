@@ -8,7 +8,7 @@ for i in range(n):
         if nums[i] > nums[j]:
             rs_incre[i] = max(rs_incre[i], rs_incre[j]+1)
 
-nums.reverse() # 역순으로 증가구하기 == 감소하는 수열 구하기
+nums.reverse() # 역순으로 증가구하기 == 감소하는 수열 구하기, 또는 for문 역으로 돌리기
 for i in range(n):
     for j in range(i):
         if nums[i] > nums[j]:
